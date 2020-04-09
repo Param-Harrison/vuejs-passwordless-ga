@@ -52,9 +52,9 @@
                             class="text--primary"
                             v-text="item.description"
                           ></v-list-item-subtitle>
-                          <v-list-item-subtitle
-                            v-text="`${item.tasks.length} Task(s)`"
-                          ></v-list-item-subtitle>
+                          <v-list-item-subtitle>
+                            {{item.tasks.length}} Task(s)
+                          </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-action>
                           <v-list-item-action-text
@@ -183,7 +183,7 @@
   </v-app>
 </template>
 <script>
-import db from "../db.js";
+import db from "./db.js";
 import { events_db } from "../firebase_auth.json";
 export default {
   name: "App",
@@ -229,7 +229,7 @@ export default {
         //Clear form
         this.eventForm = {};
       } else {
-        this.showModal("Error", `All fields are required`);
+        this.showModal("Error", "All fields are required");
       }
     },
     manageTasks(event) {
